@@ -1,34 +1,37 @@
+{% extends "meetups/base.html" %}
+<!--  -->
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ selected_meetup.title }}</title>
-  <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
-  <link rel="stylesheet" href="{% static 'meetups/styles/meetup-detail.css' %}">
-</head>
-<body>
-  <main>
-    <article>
-      <img src="" alt="">
-      <section id="location">
-        <h2>Meetup Location</h2>
-        <address>This meetup happens in <span>LOCATION</span> (ADDRESS).</address>
-      </section>
-      <section id="details">
-        <h2>What's this meetup about?</h2>
-        <p>{{ selected_meetup.description }}</p>
-        <footer>
-          <p>Do you need more details? Please, <a href="#">contact the organizers</a>. But do not span us ;)</p>
-        </footer>
-      </section>
-      <section id="registration">
-        <h2>Join us!</h2>
-        FORM
-      </section>
-    </article>
-  </main> 
-</body>
-</html>
+<!--  -->
+{% block title %} {{ selected_meetup.title }} {% endblock %}
+<!--  -->
+{% block site_css %}
+<link rel="stylesheet" href="{% static 'meetups/styles/meetup-detail.css' %}" />
+{% endblock %}
+<!--  -->
+{% block header_title %}{% endblock %}
+<!--  -->
+{% block header_content %} {% endblock %}
+<!--  -->
+{% block body %}
+<article>
+	<img src="" alt="" />
+	<section id="location">
+		<h2>Meetup Location</h2>
+		<address>This meetup happens in <span>LOCATION</span> (ADDRESS).</address>
+	</section>
+	<section id="details">
+		<h2>What's this meetup about?</h2>
+		<p>{{ selected_meetup.description }}</p>
+		<footer>
+			<p>
+				Do you need more details? Please,
+				<a href="#">contact the organizers</a>. But do not span us ;)
+			</p>
+		</footer>
+	</section>
+	<section id="registration">
+		<h2>Join us!</h2>
+		FORM
+	</section>
+</article>
+{% endblock %}
