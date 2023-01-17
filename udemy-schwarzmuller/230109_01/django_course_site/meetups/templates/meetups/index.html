@@ -1,4 +1,4 @@
-{% extends "meetups/base.html" %}
+{% extends "meetups/base/base.html" %}
 <!--  -->
 {% load static %}
 <!--  -->
@@ -20,25 +20,9 @@
 	{% if show_meetups %}
 	<ol>
 		{% for meetup in meetups %}
-		<li class="meetup-item">
-			<article>
-				<div class="meetup-summary">
-					<div class="meetup-image">
-						<img src="" alt="" />
-					</div>
-					<div class="meetup-details">
-						<h3>{{ meetup.title }}</h3>
-						<address>{{ meetup.location }}</address>
-					</div>
-				</div>
-				<div class="meetup-actions">
-					<a href="{% url 'meetup_details' meetup.slug %}" class="btn"
-						>More Details</a
-					>
-				</div>
-			</article>
-			Title: {{ meetup.title }}
-		</li>
+		<!--  -->
+		{% include "meetups/includes/meetup-item.html" with title=meetup.title location=meetup.location slug=meetup.slug %}
+		<!--  -->
 		{% endfor %}
 	</ol>
 	{% else %}

@@ -15,6 +15,11 @@ def index(request):
                 "location": "Istanbul",
                 "slug": "a-second-meetup",
             },
+            {
+                "title": "A Third Meetup",
+                "location": "Kiev",
+                "slug": "a-kiev-meetup",
+            },
         ],
     }
     return render(request, "meetups/index.html", context)
