@@ -12,8 +12,10 @@ python3 manage.py startapp meetups
 python3 manage.py makemigrations
 python3 manage.py migrate 
 
-
-
+# Create an admin user
+python3 manage.py createsuperuser
+admin
+123
 
 
 
