@@ -2,7 +2,7 @@
 <!--  -->
 {% load static %}
 <!--  -->
-{% block title %} {{ selected_meetup.title }} {% endblock %}
+{% block title %} {{ meetup.title }} {% endblock %}
 <!--  -->
 {% block site_css %}
 <link rel="stylesheet" href="{% static 'meetups/styles/meetup-detail.css' %}" />
@@ -16,14 +16,14 @@
 <!--  -->
 {% if meetup_found %}
 <article>
-	<img src="" alt="" />
+	<img id="main-image" src="{{ meetup.image.url }}" alt="{{ meetup.title }}" />
 	<section id="location">
 		<h2>Meetup Location</h2>
-		<address>This meetup happens in <span>LOCATION</span> (ADDRESS).</address>
+		<address>This meetup happens in <span>{{ meetup.location.name }}</span> ({{ meetup.location.address }}).</address>
 	</section>
 	<section id="details">
 		<h2>What's this meetup about?</h2>
-		<p>{{ selected_meetup.description }}</p>
+		<p>{{ meetup.description }}</p>
 		<footer>
 			<p>
 				Do you need more details? Please,
