@@ -29,7 +29,10 @@ admin
 123
 y
 
-
+# Create templates stuff
+mkdir templates
+cd templates
+touch projects.html single-project.html
 
 
 
