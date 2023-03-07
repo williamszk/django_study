@@ -2,10 +2,27 @@
 <!--  -->
 {% block content %}
 <h1>Projects</h1>
-<ul>
+
+<table>
+	<tr>
+		<th>Project</th>
+		<th>Votes</th>
+		<th>Ratio</th>
+	</tr>
+	{% for project in projects_list %}
+	<tr>
+    <td> {{ project.title }} </td>
+    <td> {{ project.vote_total }} </td>
+    <td> {{ project.vote_ratio }}%</td>
+    <td> <a href="{% url 'project' project.id %}"> View  </a></td>
+	</tr>
+	{% endfor %}
+</table>
+
+<!-- <ul>
 	{% for project in projects_list %}
   <li><a href="{% url 'project' project.id %}">{{project.title}}</a> -- {{project.description}}</li>
 	{% endfor %}
-</ul>
+</ul> -->
 <!--  -->
 {% endblock %}

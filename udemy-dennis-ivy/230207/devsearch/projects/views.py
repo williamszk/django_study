@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from .models import Project
 
 projects_list = [
     {
@@ -21,16 +21,18 @@ projects_list = [
 
 
 def projects(request):
-    # return HttpResponse("<h1>This is our projects.</h1>")
-    context = {"projects_list": projects_list}
+    project = Project.objects.all()
+    context = {"projects_list": project}
     return render(request, "projects/projects.html", context)
 
 
 def project(request, pk):
-    # return HttpResponse(f"<h1>This is our project {pk}.</h1>")
-    chosen_project_00 = filter(lambda x: x["id"] == pk, projects_list)
-    if chosen_project_00 is None:
+    # chosen_project_00 = filter(lambda x: x["id"] == pk, projects_list)
+    # if chosen_project_00 is None:
+    #     redirect(request, "projects/project.html")
+    # chosen_project = list(chosen_project_00)[0]
+    chosen_project = Project.objects.get(id=pk)
+    if chosen_project is None:
         redirect(request, "projects/project.html")
-    chosen_project = list(chosen_project_00)[0]
     context = {"project": chosen_project}
     return render(request, "projects/single-project.html", context)
